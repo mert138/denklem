@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denklem Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ana Sayfa -->
+    <div id="homePage" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1 class="title">Denklem Arena</h1>
+                <p class="subtitle">Matematik Şampiyonu Ol!</p>
+                
+                <div class="intro-text">
+                    <p>Hoş geldin, matematikçi! 🎯</p>
+                    <p>Bu arenada senin görevin denklemleri çözmek ve doğru cevapları bulmaktır.</p>
+                    <p><strong>Kurallar:</strong></p>
+                    <ul class="rules">
+                        <li>Her soruda 4 denklem seçeneği verilecek</li>
+                        <li>Doğru denklemi seçmelisin ve X'i bulmalısın</li>
+                        <li>Her zorluk seviyesinde 5 soru arka arkaya doğru yapınca bir üst seviyeye geçersin</li>
+                        <li>Sırası: Kolay → Orta → Zor</li>
+                        <li>Zorlu seviyede 5 soruyu başarırsan ŞAMPIYON OLURSUN! 👑</li>
+                        <li>Herhangi bir yanlış cevap oyunu bitirir</li>
+                    </ul>
+                </div>
+
+                <button class="btn-start" onclick="startGame()">Yarışmaya Başla! 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oyun Sayfası -->
+    <div id="gamePage" class="page">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="level-info">
+                    <span id="levelDisplay">Kolay</span>
+                </div>
+                <div class="streak-info">
+                    <span>Seri: <strong id="streakCount">0</strong>/5</span>
+                </div>
+                <div class="timer-info">
+                    <span>Zaman: <strong id="timer">30</strong>s</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <p class="question-text">Aşağıdaki denklemde X'in değerini bulunuz:</p>
+                <p id="equation" class="equation"></p>
+                <p class="instruction">Doğru X değerini seçiniz:</p>
+            </div>
+
+            <div class="options-container">
+                <button class="option-btn" onclick="selectAnswer(0)">
+                    <span class="option-letter">A</span>
+                    <span id="option0" class="option-text"></span>
+                </button>
+                <button class="option-btn" onclick="selectAnswer(1)">
+                    <span class="option-letter">B</span>
+                    <span id="option1" class="option-text"></span>
+                </button>
+                <button class="option-btn" onclick="selectAnswer(2)">
+                    <span class="option-letter">C</span>
+                    <span id="option2" class="option-text"></span>
+                </button>
+                <button class="option-btn" onclick="selectAnswer(3)">
+                    <span class="option-letter">D</span>
+                    <span id="option3" class="option-text"></span>
+                </button>
+            </div>
+
+            <div class="question-counter">
+                <span id="questionNum">Soru 1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oyun Bitti Sayfası -->
+    <div id="gameOverPage" class="page">
+        <div class="container">
+            <div class="game-over">
+                <h1 id="resultTitle">Oyun Bitti!</h1>
+                <p id="resultMessage" class="result-message"></p>
+                
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Ulaştığın Seviye:</span>
+                        <span id="finalLevel" class="stat-value">Kolay</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Doğru Cevaplar:</span>
+                        <span id="correctAnswers" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Başarı Oranı:</span>
+                        <span id="successRate" class="stat-value">0%</span>
+                    </div>
+                </div>
+
+                <button class="btn-restart" onclick="goHome()">Ana Sayfaya Dön</button>
+                <button class="btn-retry" onclick="startGame()">Yeniden Deneyin</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
